@@ -145,16 +145,16 @@
             // 
             this.numericUpDown1.DecimalPlaces = 2;
             this.numericUpDown1.Increment = new decimal(new int[] {
-            1,
+            5,
             0,
             0,
-            131072});
+            196608});
             this.numericUpDown1.Location = new System.Drawing.Point(1229, 717);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
             0,
-            131072});
+            196608});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
             this.numericUpDown1.TabIndex = 9;
@@ -162,7 +162,7 @@
             1,
             0,
             0,
-            0});
+            131072});
             // 
             // labelKonst_Pocz
             // 
