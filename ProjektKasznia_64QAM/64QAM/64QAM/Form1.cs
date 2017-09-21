@@ -20,16 +20,24 @@ namespace _64QAM
         public double ProcentSzerokosciOkna { get; private set; }
         List<MyComplex> ListaPunktowKonstekacji = new List<MyComplex>();
         List<MyComplex> ListaPunktowKonstekacji2 = new List<MyComplex>();
+        List<Color> colorTab = new List<Color>();
         public Form1()
         {
             InitializeComponent();
             ListaPunktowKonstekacji = StworzPunktyKonstelacji();
-            WstawKonstelacje(chart1, ListaPunktowKonstekacji);
-
+            WstawKonstelacje(chart1, ListaPunktowKonstekacji);   
             SetupChart(chart1);
             SetupChart(chart2);
+            InitializeColorTab();
 
+        }
 
+        private void InitializeColorTab()
+        {
+            for(int i = 0; i <=64; i ++)
+            {
+
+            }
         }
 
         public void SetupChart(Chart chart)
