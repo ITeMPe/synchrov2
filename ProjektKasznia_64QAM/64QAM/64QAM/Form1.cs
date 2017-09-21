@@ -20,7 +20,7 @@ namespace _64QAM
         public double ProcentSzerokosciOkna { get; private set; }
         List<MyComplex> ListaPunktowKonstekacji = new List<MyComplex>();
         List<MyComplex> ListaPunktowKonstekacji2 = new List<MyComplex>();
-        List<Color> colorTab = new List<Color>();
+        List<Color> listColor = new List<Color>();
         public Form1()
         {
             InitializeComponent();
@@ -34,9 +34,26 @@ namespace _64QAM
 
         private void InitializeColorTab()
         {
+            int r=0, g=0, b=0;
             for(int i = 0; i <=64; i ++)
             {
-
+                switch (i%3)
+                {
+                    case 0:
+                        r += 45;
+                        if (r > 200) r = 0;
+                        break;
+                    case 1:
+                        g += 45;
+                        if (g > 200) g = 0;
+                        break;
+                    case 2:
+                        b += 45;
+                        if (b > 200) b = 0;
+                        break;                            
+                }
+                var c = Color.FromArgb(10+r, 10+g, 10+b);
+                listColor.Add(c);
             }
         }
 
@@ -116,19 +133,30 @@ namespace _64QAM
                 MarkerStyle = MarkerStyle.Circle,
                 MarkerColor = Color.Black 
             };
-
+            int i = 0;
             foreach (var s in konstelacja)
             {
                 constelationSeries.Points.AddXY(s.Real, s.Imagine);
+               if(i<64) constelationSeries.Points[i].MarkerColor = listColor[i];
+                i++;
             }
             chart.Series.Add(constelationSeries);
+          
         }
 
 
         public void ZmienKolor(Chart chart, double x, double y, Color color)
         {
-            var foo = chart.Series.Select(s => s.Points.Where(r => r.XValue == x && r.YValues[0] == y).FirstOrDefault()).FirstOrDefault();
+            var foo = chart.Series[0].Points.Where(r => r.XValue == x && r.YValues[0] == y).FirstOrDefault();
             foo.Color = color;
+        }
+
+        public void ZmienKolor(Chart chart,int index, Color color)
+        {          
+            foreach(var s in chart.Series)
+            {
+                s.Points[index].Color = color;
+            }                 
         }
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
