@@ -17,7 +17,7 @@ namespace _64QAM
         private int ograniczenie = 0;
         private double lastChange = 0;
         private float procentSzerokosciOkna_ { get; set; } = 0.4f;
-        public int ProcentSzerokosciOkna { get; private set; }
+        public double ProcentSzerokosciOkna { get; private set; }
         List<MyComplex> ListaPunktowKonstekacji = new List<MyComplex>();
         List<MyComplex> ListaPunktowKonstekacji2 = new List<MyComplex>();
         public Form1()
