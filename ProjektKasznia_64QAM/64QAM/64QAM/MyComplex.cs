@@ -14,12 +14,13 @@ namespace _64QAM
         {
 
         }
-        public MyComplex(double real, double imagine)
+        public MyComplex(double real, double imagine, byte point)
         {
             Real_ = real;
             Imagine_ = imagine;
             Phase_ = Math.Atan(Math.Abs(Imagine_) / Math.Abs(Real_));
             Madnitude_ = Math.Sqrt(Math.Pow(Real_, 2) + Math.Pow(Imagine_, 2));
+            point_ = point;
             if (Real_ < 0 && Imagine_ > 0) //2
             {
                 Phase_ += Math.PI / 2;
@@ -38,6 +39,7 @@ namespace _64QAM
         private double Imagine_;
         private double Phase_;
         private double Madnitude_;
+        byte point_;
 
         public double Real
         {
