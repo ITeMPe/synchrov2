@@ -313,11 +313,53 @@ namespace _64QAM
                 char[] znaki = new char[napis.Length];
                 for(int i=0 ; i<napis.Length ; i++)
                 {
-                    int numer= Int.Parse(napis);
-                    binary = Convert.ToString(numer ,2); 
-                    textBoxReciver.Text = binary.ToString();
+                    //int numer= Int.Parse(napis);
+                    //binary = Convert.ToString(numer ,2); 
+                    //textBoxReciver.Text = binary.ToString();
                 }Console.WriteLine(binary);
             }  
         }
-}
+        Point? prevPosition = null;
+        ToolTip tooltip = new ToolTip();
+        private void chart1_MouseClick(object sender, MouseEventArgs e)
+        {
+            var pos = e.Location;
+            if (prevPosition.HasValue && pos == prevPosition.Value)
+                return;
+            tooltip.RemoveAll();
+            prevPosition = pos;
+            var results = chart1.HitTest(pos.X, pos.Y, false,
+                                            ChartElementType.DataPoint);
+            foreach (var result in results)
+            {
+                if (result.ChartElementType == ChartElementType.DataPoint)
+                {
+                    var prop = result.Object as DataPoint;
+                    if (prop != null)
+                    {
+                        var pointXPixel = result.ChartArea.AxisX.ValueToPixelPosition(prop.XValue);
+                        var pointYPixel = result.ChartArea.AxisY.ValueToPixelPosition(prop.YValues[0]);
+
+                        // check if the cursor is really close to the point (2 pixels around the point)
+                        if (Math.Abs(pos.X - pointXPixel) < 4 &&
+                            Math.Abs(pos.Y - pointYPixel) < 4)
+                        {
+                            numericUpDownX.Value =(decimal)prop.XValue;
+                            numericUpDownY.Value = (decimal)prop.YValues[0];
+                            Console.WriteLine("X=" + prop.XValue + ", Y=" + prop.YValues[0], this.chart1,
+                                            pos.X, pos.Y - 15);
+                        }
+                    }
+                }
+            }
+
+
+
+            // statusStrip1.Text = e.Location.ToString();
+           // Console.WriteLine(e.Location.ToString());
+           // statusStrip1.Refresh();
+        }
+
+     
+    }
 }
