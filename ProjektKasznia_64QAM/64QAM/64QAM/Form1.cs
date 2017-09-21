@@ -135,10 +135,11 @@ namespace _64QAM
         {
             label1.Text = trackBar1.Value.ToString() + "°";
             double phase = trackBar1.Value * Math.PI / 180;
-            if (checkBoxFaza.Checked)
+            if (checkBoxFaza.Checked && checkBoxCzestotliwosc.Checked ==false)
             {
                 wplywFazyNaKOnstelacje(phase);
             }
+            wplywFazyNaKOnstelacje_Faza_and_Czestot();
         }
 
         private void wplywFazyNaKOnstelacje(double phase)
@@ -179,16 +180,56 @@ namespace _64QAM
             lastChange = phase;
         }
 
+        private void wplywFazyNaKOnstelacje_Faza_and_Czestot()
+        {
+            List<MyComplex> result = new List<MyComplex>();
+            if(checkBoxCzestotliwosc.Checked && checkBoxFaza.Checked)
+            {
+            for (double t = 0; t < (double)numericUpDown1.Value * 5; t += (double)numericUpDown1.Value)
+            {
+            if (lastChange < trackBar1.Value * Math.PI / 180)
+            {
+
+                foreach (var s in ListaPunktowKonstekacji)
+                {
+                    result.Add(new MyComplex
+                    {
+                        Imagine = s.Imagine,
+                        Real = s.Real,
+                        Phase = s.Phase + trackBar1.Value * Math.PI / 180 + trackBarCzestotliwosc.Value * t
+                    }
+                   );
+
+                }
+            }
+            else
+            {
+                foreach (var s in ListaPunktowKonstekacji)
+                {
+                    result.Add(new MyComplex
+                    {
+                        Imagine = s.Imagine,
+                        Real = s.Real,
+                        Phase = s.Phase - trackBar1.Value * Math.PI / 180 + trackBarCzestotliwosc.Value * t
+                    }
+                   );
+
+                }
+            }
+            WstawKonstelacje(chart2, result);
+            lastChange = trackBar1.Value * Math.PI / 180;
+        }
+        }
+        }
+
         private void trackBarCzestotliwosc_ValueChanged(object sender, EventArgs e)
         {
             label2.Text = trackBarCzestotliwosc.Value.ToString() + "Hz";
-            
+            if (checkBoxCzestotliwosc.Checked && checkBoxFaza.Checked ==false)
+            {
             List<MyComplex> result = new List<MyComplex>();
             for (double t = 0; t < (double)numericUpDown1.Value*5; t += (double)numericUpDown1.Value)
             {
-
-
-
                 foreach (var s in ListaPunktowKonstekacji)
                 {
                     result.Add(new MyComplex
@@ -202,7 +243,8 @@ namespace _64QAM
                 }
                     dodajKonstelacje(chart2, result);
             }
-           
+            }
+        wplywFazyNaKOnstelacje_Faza_and_Czestot();
         }
-    }
+}
 }

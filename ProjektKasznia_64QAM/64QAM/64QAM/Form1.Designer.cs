@@ -35,13 +35,14 @@
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBoxFaza = new System.Windows.Forms.CheckBox();
             this.checkBoxCzestotliwosc = new System.Windows.Forms.CheckBox();
             this.trackBarCzestotliwosc = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.labelKonst_Pocz = new System.Windows.Forms.Label();
+            this.label3KOnst_Wyjs = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -53,7 +54,7 @@
             // 
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Location = new System.Drawing.Point(22, 12);
+            this.chart1.Location = new System.Drawing.Point(12, 92);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
             series1.ChartArea = "ChartArea1";
@@ -68,7 +69,7 @@
             // 
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
-            this.chart2.Location = new System.Drawing.Point(854, 33);
+            this.chart2.Location = new System.Drawing.Point(854, 92);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
             series2.ChartArea = "ChartArea1";
@@ -81,27 +82,18 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(48, 616);
+            this.trackBar1.Location = new System.Drawing.Point(55, 648);
             this.trackBar1.Maximum = 360;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(464, 56);
             this.trackBar1.TabIndex = 2;
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(694, 648);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(518, 616);
+            this.label1.Location = new System.Drawing.Point(513, 657);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(25, 29);
             this.label1.TabIndex = 4;
@@ -110,7 +102,7 @@
             // checkBoxFaza
             // 
             this.checkBoxFaza.AutoSize = true;
-            this.checkBoxFaza.Location = new System.Drawing.Point(707, 92);
+            this.checkBoxFaza.Location = new System.Drawing.Point(694, 169);
             this.checkBoxFaza.Name = "checkBoxFaza";
             this.checkBoxFaza.Size = new System.Drawing.Size(61, 21);
             this.checkBoxFaza.TabIndex = 5;
@@ -120,7 +112,7 @@
             // checkBoxCzestotliwosc
             // 
             this.checkBoxCzestotliwosc.AutoSize = true;
-            this.checkBoxCzestotliwosc.Location = new System.Drawing.Point(707, 142);
+            this.checkBoxCzestotliwosc.Location = new System.Drawing.Point(694, 209);
             this.checkBoxCzestotliwosc.Name = "checkBoxCzestotliwosc";
             this.checkBoxCzestotliwosc.Size = new System.Drawing.Size(114, 21);
             this.checkBoxCzestotliwosc.TabIndex = 6;
@@ -129,7 +121,7 @@
             // 
             // trackBarCzestotliwosc
             // 
-            this.trackBarCzestotliwosc.Location = new System.Drawing.Point(854, 616);
+            this.trackBarCzestotliwosc.Location = new System.Drawing.Point(854, 648);
             this.trackBarCzestotliwosc.Maximum = 500;
             this.trackBarCzestotliwosc.Name = "trackBarCzestotliwosc";
             this.trackBarCzestotliwosc.Size = new System.Drawing.Size(464, 56);
@@ -140,7 +132,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(1324, 616);
+            this.label2.Location = new System.Drawing.Point(1324, 657);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 29);
             this.label2.TabIndex = 8;
@@ -154,7 +146,7 @@
             0,
             0,
             131072});
-            this.numericUpDown1.Location = new System.Drawing.Point(978, 690);
+            this.numericUpDown1.Location = new System.Drawing.Point(1229, 717);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
@@ -169,18 +161,39 @@
             0,
             0});
             // 
+            // labelKonst_Pocz
+            // 
+            this.labelKonst_Pocz.AutoSize = true;
+            this.labelKonst_Pocz.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelKonst_Pocz.Location = new System.Drawing.Point(48, 35);
+            this.labelKonst_Pocz.Name = "labelKonst_Pocz";
+            this.labelKonst_Pocz.Size = new System.Drawing.Size(565, 42);
+            this.labelKonst_Pocz.TabIndex = 10;
+            this.labelKonst_Pocz.Text = "KONSTELACJA POCZĄTKOWA";
+            // 
+            // label3KOnst_Wyjs
+            // 
+            this.label3KOnst_Wyjs.AutoSize = true;
+            this.label3KOnst_Wyjs.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3KOnst_Wyjs.Location = new System.Drawing.Point(899, 35);
+            this.label3KOnst_Wyjs.Name = "label3KOnst_Wyjs";
+            this.label3KOnst_Wyjs.Size = new System.Drawing.Size(538, 42);
+            this.label3KOnst_Wyjs.TabIndex = 11;
+            this.label3KOnst_Wyjs.Text = "KONSTELACJA WYJŚCIOWA ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1509, 751);
+            this.Controls.Add(this.label3KOnst_Wyjs);
+            this.Controls.Add(this.labelKonst_Pocz);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.trackBarCzestotliwosc);
             this.Controls.Add(this.checkBoxCzestotliwosc);
             this.Controls.Add(this.checkBoxFaza);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
@@ -201,13 +214,14 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBoxFaza;
         private System.Windows.Forms.CheckBox checkBoxCzestotliwosc;
         private System.Windows.Forms.TrackBar trackBarCzestotliwosc;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label labelKonst_Pocz;
+        private System.Windows.Forms.Label label3KOnst_Wyjs;
     }
 }
 
