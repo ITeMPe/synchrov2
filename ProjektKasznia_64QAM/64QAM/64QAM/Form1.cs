@@ -25,7 +25,7 @@ namespace _64QAM
         {
             InitializeComponent();
             ListaPunktowKonstekacji = StworzPunktyKonstelacji();
-            WstawKonstelacje(chart1, ListaPunktowKonstekacji);   
+            WstawKonstelacje(chart1, ListaPunktowKonstekacji);
             SetupChart(chart1);
             SetupChart(chart2);
             InitializeColorTab();
@@ -34,10 +34,10 @@ namespace _64QAM
 
         private void InitializeColorTab()
         {
-            int r=0, g=0, b=0;
-            for(int i = 0; i <=64; i ++)
+            int r = 0, g = 0, b = 0;
+            for (int i = 0; i <= 64; i++)
             {
-                switch (i%3)
+                switch (i % 3)
                 {
                     case 0:
                         r += 45;
@@ -50,9 +50,9 @@ namespace _64QAM
                     case 2:
                         b += 45;
                         if (b > 200) b = 0;
-                        break;                            
+                        break;
                 }
-                var c = Color.FromArgb(10+r, 10+g, 10+b);
+                var c = Color.FromArgb(10 + r, 10 + g, 10 + b);
                 listColor.Add(c);
             }
         }
@@ -116,7 +116,7 @@ namespace _64QAM
                 constelationSeries.Points.AddXY(s.Real, s.Imagine);
             }
             chart.Series.Add(constelationSeries);
-         
+
         }
 
         public void dodajKonstelacje(Chart chart, List<MyComplex> konstelacja)
@@ -131,17 +131,17 @@ namespace _64QAM
                 ChartType = SeriesChartType.Point,
                 MarkerSize = 7,
                 MarkerStyle = MarkerStyle.Circle,
-                MarkerColor = Color.Black 
+                MarkerColor = Color.Black
             };
             int i = 0;
             foreach (var s in konstelacja)
             {
                 constelationSeries.Points.AddXY(s.Real, s.Imagine);
-               if(i<64) constelationSeries.Points[i].MarkerColor = listColor[i];
+                if (i < 64) constelationSeries.Points[i].MarkerColor = listColor[i];
                 i++;
             }
             chart.Series.Add(constelationSeries);
-          
+
         }
 
 
@@ -151,19 +151,19 @@ namespace _64QAM
             foo.Color = color;
         }
 
-        public void ZmienKolor(Chart chart,int index, Color color)
-        {          
-            foreach(var s in chart.Series)
+        public void ZmienKolor(Chart chart, int index, Color color)
+        {
+            foreach (var s in chart.Series)
             {
                 s.Points[index].Color = color;
-            }                 
+            }
         }
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
             label1.Text = trackBar1.Value.ToString() + "°";
             double phase = trackBar1.Value * Math.PI / 180;
-            if (checkBoxFaza.Checked && checkBoxCzestotliwosc.Checked ==false)
+            if (checkBoxFaza.Checked && checkBoxCzestotliwosc.Checked == false)
             {
                 wplywFazyNaKOnstelacje(phase);
             }
@@ -211,68 +211,84 @@ namespace _64QAM
         private void wplywFazyNaKOnstelacje_Faza_and_Czestot()
         {
             List<MyComplex> result = new List<MyComplex>();
-            if(checkBoxCzestotliwosc.Checked && checkBoxFaza.Checked)
+            if (checkBoxCzestotliwosc.Checked && checkBoxFaza.Checked)
             {
-            for (double t = 0; t < (double)numericUpDown1.Value * 5; t += (double)numericUpDown1.Value)
-            {
-            if (lastChange < trackBar1.Value * Math.PI / 180)
-            {
-
-                foreach (var s in ListaPunktowKonstekacji)
+                for (double t = 0; t < (double)numericUpDown1.Value * 5; t += (double)numericUpDown1.Value)
                 {
-                    result.Add(new MyComplex
+                    if (lastChange < trackBar1.Value * Math.PI / 180)
                     {
-                        Imagine = s.Imagine,
-                        Real = s.Real,
-                        Phase = s.Phase + trackBar1.Value * Math.PI / 180 + trackBarCzestotliwosc.Value * t
-                    }
-                   );
 
+                        foreach (var s in ListaPunktowKonstekacji)
+                        {
+                            result.Add(new MyComplex
+                            {
+                                Imagine = s.Imagine,
+                                Real = s.Real,
+                                Phase = s.Phase + trackBar1.Value * Math.PI / 180 + trackBarCzestotliwosc.Value * t
+                            }
+                           );
+
+                        }
+                    }
+                    else
+                    {
+                        foreach (var s in ListaPunktowKonstekacji)
+                        {
+                            result.Add(new MyComplex
+                            {
+                                Imagine = s.Imagine,
+                                Real = s.Real,
+                                Phase = s.Phase - trackBar1.Value * Math.PI / 180 + trackBarCzestotliwosc.Value * t
+                            }
+                           );
+
+                        }
+                    }
+                    WstawKonstelacje(chart2, result);
+                    lastChange = trackBar1.Value * Math.PI / 180;
                 }
             }
-            else
-            {
-                foreach (var s in ListaPunktowKonstekacji)
-                {
-                    result.Add(new MyComplex
-                    {
-                        Imagine = s.Imagine,
-                        Real = s.Real,
-                        Phase = s.Phase - trackBar1.Value * Math.PI / 180 + trackBarCzestotliwosc.Value * t
-                    }
-                   );
-
-                }
-            }
-            WstawKonstelacje(chart2, result);
-            lastChange = trackBar1.Value * Math.PI / 180;
-        }
-        }
         }
 
         private void trackBarCzestotliwosc_ValueChanged(object sender, EventArgs e)
         {
             label2.Text = trackBarCzestotliwosc.Value.ToString() + "Hz";
-            if (checkBoxCzestotliwosc.Checked && checkBoxFaza.Checked ==false)
+            if (checkBoxCzestotliwosc.Checked && checkBoxFaza.Checked == false)
             {
-            List<MyComplex> result = new List<MyComplex>();
-            for (double t = 0; t < (double)numericUpDown1.Value*5; t += (double)numericUpDown1.Value)
-            {
-                foreach (var s in ListaPunktowKonstekacji)
+                List<MyComplex> result = new List<MyComplex>();
+                for (double t = 0; t < (double)numericUpDown1.Value * 5; t += (double)numericUpDown1.Value)
                 {
-                    result.Add(new MyComplex
+                    foreach (var s in ListaPunktowKonstekacji)
                     {
-                        Imagine = s.Imagine,
-                        Real = s.Real,
-                        Phase = s.Phase + trackBarCzestotliwosc.Value * t
+                        result.Add(new MyComplex
+                        {
+                            Imagine = s.Imagine,
+                            Real = s.Real,
+                            Phase = s.Phase + trackBarCzestotliwosc.Value * t
+                        }
+                       );
+
                     }
-                   );
-                   
-                }
                     dodajKonstelacje(chart2, result);
+                }
             }
-            }
-        wplywFazyNaKOnstelacje_Faza_and_Czestot();
+            wplywFazyNaKOnstelacje_Faza_and_Czestot();
         }
-}
+
+        private void buttonSend_Click(object sender, EventArgs e)
+        {
+            if (textBoxTransmiter != null)
+            {
+                String napis =   textBoxTransmiter.Text;
+                String binary = null;
+                char[] znaki = new char[napis.Length];
+                for(int i=0 ; i<napis.Length ; i++)
+                {
+                    int numer= Int.Parse(napis);
+                    binary = Convert.ToString(numer ,2); 
+                    textBoxReciver.Text = binary.ToString();
+                }Console.WriteLine(binary);
+            }  
+        }
+    }
 }
