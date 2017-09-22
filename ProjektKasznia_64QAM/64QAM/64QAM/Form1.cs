@@ -283,9 +283,9 @@ namespace _64QAM
                            );
 
                         }
-                        dodajKonstelacje(chart2, result);
 
                     }
+                        dodajKonstelacje(chart2, result);
                 }
             }
             lastChange = trackBar1.Value * Math.PI / 180;

@@ -91,49 +91,30 @@ namespace _64QAM
             }
             set
             {
-
                 Phase_ = value;
                 Imagine_ = Madnitude_ * Math.Sin(Phase_);
                 Real_ = Madnitude_ * Math.Cos(Phase_);
-
-
-                //if (Phase_ > Math.PI / 2 && Phase_ < Math.PI)  //2
+                //if (Phase_ >= 0 && Phase_ < Math.PI / 2)    //1
                 //{
-
-                //    Real_ *= -1;
+                    
                 //}
-                //if (Phase_ > Math.PI && Phase_ < Math.PI * 1.5)  //3
+                //if (Phase_ >= Math.PI / 2 && Phase_ < Math.PI)  //2
                 //{
-                //    Imagine_ *= -1;
-                //    Real_ *= -1;
+                //    Imagine_ = Madnitude_ * Math.Sin(Phase_ - (Math.PI / 2));
+                //    Real_ = Madnitude_ * Math.Cos(Phase_ - (Math.PI / 2)) * -1;
                 //}
-                //if (Phase_ > Math.PI * 1.5 && Phase_ < Math.PI * 2) //4
+                //if (Phase_ >= Math.PI && Phase_ < Math.PI * 1.5)  //3
                 //{
-                //    Imagine_ *= -1;
-
-                //}
-
-                //Phase_ = value;  
-                //if(Phase_ > 0 && Phase_ < Math.PI/2)    //1
-                //{
-                //Imagine_ = Madnitude_ * Math.Sin(Phase_);
-                //Real_ = Madnitude_ * Math.Cos(Phase_);  
-                //}
-                //if (Phase_ > Math.PI/2 && Phase_ < Math.PI )  //2
-                //{
-                //    Imagine_ = Madnitude_ * Math.Sin(Phase_- Math.PI / 2);
-                //    Real_ = Madnitude_ * Math.Cos(Phase_- Math.PI / 2) * -1;
-                //}
-                //if (Phase_ > Math.PI && Phase_ < Math.PI * 1.5)  //3
-                //{
-                //    Imagine_ = Madnitude_ * Math.Sin(Phase_ - Math.PI) * -1;
-                //    Real_ = Madnitude_ * Math.Cos(Phase_ - Math.PI) * -1;
+                //    Imagine_ = Madnitude_ * Math.Sin(Phase_ - (Math.PI)) * -1;   /*- Math.PI*/
+                //    Real_ = Madnitude_ * Math.Cos(Phase_ - (Math.PI)) * -1;   /*- Math.PI*/
                 //}
                 //if (Phase_ > Math.PI * 1.5 && Phase_ < Math.PI * 2) //4
                 //{
-                //    Imagine_ = Madnitude_ * Math.Sin(Phase_ - Math.PI * 1.5) *-1;
-                //    Real_ = Madnitude_ * Math.Cos(Phase_ - Math.PI * 1.5);
-                //}    
+                //    Imagine_ = Madnitude_ * Math.Sin(Phase_ + (Math.PI / 2)) * -1;    /*- Math.PI * 1.5*/
+                //    Real_ = Madnitude_ * Math.Cos(Phase_ + (Math.PI / 2)); /*- Math.PI * 1.5*/
+                //}
+               
+
             }
         }
     }
