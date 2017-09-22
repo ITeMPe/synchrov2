@@ -147,7 +147,7 @@ namespace _64QAM
                 i++;
             }
             chart.Series.Add(constelationSeries);
-            ZmienKolor(chart1);
+           
         }
 
         public void dodajKonstelacje(Chart chart, List<MyComplex> konstelacja)
@@ -171,94 +171,12 @@ namespace _64QAM
             chart.Series.Add(constelationSeries);
         }
 
-
-        public void ZmienKolor(Chart chart, double x, double y, Color color)
-        {
-            //var foo = chart.Series[0].Points.Where(r => r.XValue == x && r.YValues[0] == y).FirstOrDefault();
-            //foo.Color = color;
-        }
-
-        public void ZmienKolor(Chart chart, int index, Color color)
-        {
-            //foreach (var s in chart.Series)
-            //{
-            //    s.Points[index].Color = color;
-            //}
-        }
-
-        public void ZmienKolor(Chart chart)
-        {
-            //foreach (var s in chart.Series)
-            //{
-            //    int i = 0;
-            //    foreach (var r in s.Points)
-            //    {
-            //        if (i > 64) i = 0;
-            //        r.Color = listColor[i];
-            //        i++;
-            //    }
-
-            //}
-        }
-
-        private void trackBar1_ValueChanged(object sender, EventArgs e)
-        {
-
-            label1.Text = trackBar1.Value.ToString() + "°";
-            //double phase = trackBar1.Value * Math.PI / 180;
-            //if (checkBoxFaza.Checked && checkBoxCzestotliwosc.Checked == false)
-            //{
-            //    wplywFazyNaKOnstelacje(phase);
-            //}
-            //wplywFazyNaKOnstelacje_Faza_and_Czestot();
-        }
-
-        private void wplywFazyNaKOnstelacje(double phase)
-        {
-
-            //List<MyComplex> result = new List<MyComplex>();
-
-
-            //if (lastChange < phase)
-            //{
-
-            //    foreach (var s in ListaPunktowKonstekacji)
-            //    {
-
-            //        result.Add(new MyComplex
-            //        {
-            //            Imagine = s.Imagine,
-            //            Real = s.Real,
-            //            Phase = s.Phase + phase
-            //        });
-            //    }
-
-
-
-            //}
-
-            //else
-            //{
-            //    foreach (var s in ListaPunktowKonstekacji)
-            //    {
-            //        result.Add(new MyComplex
-            //        {
-            //            Imagine = s.Imagine,
-            //            Real = s.Real,
-            //            Phase = s.Phase - phase
-            //        }
-            //       );
-
-            //    }
-            //}
-            //WstawKonstelacje(chart2, result);
-            //ZmienKolor(chart2);
-            //lastChange = phase;
-        }
+          
+       
 
         private void wplywFazyNaKOnstelacje_Faza_and_Czestot()
         {
-            licznik = 0;
+            
             if (checkBoxCzestotliwosc.Checked && checkBoxFaza.Checked)
             {
                 resultListmore = new List<List<MyComplex>>();
@@ -302,111 +220,34 @@ namespace _64QAM
 
         private void trackBarCzestotliwosc_ValueChanged(object sender, EventArgs e)
         {
-            //licznik = 0;
+           
             label2.Text = trackBarCzestotliwosc.Value.ToString() + "Hz";
-            //chart2.Series.Clear();
-            //if (checkBoxCzestotliwosc.Checked && checkBoxFaza.Checked)
-            //{
-            //    wplywFazyNaKOnstelacje_Faza_and_Czestot();
-            //    return;
-            //}
-
-            //if (checkBoxCzestotliwosc.Checked && checkBoxFaza.Checked == false)
-            //{
-            //    for (double t = 0; t <= (double)numericUpDown1.Value * (double)numericUpDownpointAnimation.Value / 100; t += (double)numericUpDown1.Value / 100)
-            //    {
-            //        List<MyComplex> result = new List<MyComplex>();
-            //        foreach (var s in ListaPunktowKonstekacji)
-            //        {
-            //            result.Add(new MyComplex
-            //            {
-            //                Imagine = s.Imagine,
-            //                Real = s.Real,
-            //                Phase = s.Phase + trackBarCzestotliwosc.Value * t
-            //            }
-            //           );
-
-            //        }
-            //        dodajKonstelacje(chart2, result);
-            //    }
-            //}
+           
 
         }
 
 
         Point? prevPosition = null;
         ToolTip tooltip = new ToolTip();
-        private void chart1_MouseClick(object sender, MouseEventArgs e)
-        {
-            ListaPunktowKonstekacji = StworzPunktyKonstelacji();
-           // WstawKonstelacje(chart1, ListaPunktowKonstekacji);
-            var pos = e.Location;
-            if (prevPosition.HasValue && pos == prevPosition.Value)
-                return;
-            tooltip.RemoveAll();
-            prevPosition = pos;
-            var results = chart1.HitTest(pos.X, pos.Y, false,
-                                            ChartElementType.DataPoint);
-            foreach (var result in results)
-            {
-                if (result.ChartElementType == ChartElementType.DataPoint)
-                {
-                    var prop = result.Object as DataPoint;
-                    if (prop != null)
-                    {
-                        var pointXPixel = result.ChartArea.AxisX.ValueToPixelPosition(prop.XValue);
-                        var pointYPixel = result.ChartArea.AxisY.ValueToPixelPosition(prop.YValues[0]);
-
-                        // check if the cursor is really close to the point (2 pixels around the point)
-                        if (Math.Abs(pos.X - pointXPixel) < 4 &&
-                            Math.Abs(pos.Y - pointYPixel) < 4)
-                        {
-                            numericUpDownX.Value = (decimal)prop.XValue;
-                            numericUpDownY.Value = (decimal)prop.YValues[0];
-                            licznik = 0;
-
-                        }
-                    }
-                }
-            }
-          //  checkBoxPoint_CheckedChanged(null, null);
-            trackBarCzestotliwosc_ValueChanged(null, null);
-
-
-        }
-        Color OldColorMarker;
+        
 
       
-        int licznik = 0;
+       // int licznik = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {     
             var punkt = OrginalnaKonstelacja[random.Next(0, 63)];
             dodajKonstelacje(chart1, new List<MyComplex> { new MyComplex(punkt.Real,punkt.Imagine,0x00)});
-            numericUpDownX.Value = (decimal)punkt.Real;
-            numericUpDownY.Value = (decimal)punkt.Imagine;
+          
             ListaPunktowKonstekacji = new List<MyComplex>() { new MyComplex(punkt.Real, punkt.Imagine, 0x00) };
           
             timer1.Enabled = false;
-            timerek.Enabled = true;
-            //foo.MarkerSize = 20;
-            //var R = foo.MarkerColor.R + 10;
-            //var G = foo.MarkerColor.G + 10;
-            //var B = foo.MarkerColor.B + 10;
-            //if (R > 255) R = OldColorMarker.R;
-            //if (G > 255) G = OldColorMarker.G;
-            //if (B > 255) B = OldColorMarker.B;
-            //foo.MarkerColor = Color.FromArgb(255, R, G, B);
-
-
+            timerek.Enabled = true;      
         }
 
         private void numericUpDownX_Click(object sender, EventArgs e)
-        {
-            licznik = 0;
-            //checkBoxPoint_CheckedChanged(null, null);
+        {     
             trackBarCzestotliwosc_ValueChanged(null, null);
-            ListaPunktowKonstekacji = StworzPunktyKonstelacji();
-           // WstawKonstelacje(chart1, ListaPunktowKonstekacji);
+            ListaPunktowKonstekacji = StworzPunktyKonstelacji();   
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -417,36 +258,10 @@ namespace _64QAM
         bool flagAnimation = false;
         private void button1_Click(object sender, EventArgs e)
         {
-            //if (flagAnimation == false)
-            //{
-            //    flagAnimation = true;
-            //    button1.BackColor = Color.Red;
-            //    timer2.Enabled = true;
-            //    wplywFazyNaKOnstelacje_Faza_and_Czestot();
-            //}
-            //else
-            //{
-
-            //    flagAnimation = false;
-            //    button1.BackColor = Color.LawnGreen;
-            //    timer2.Enabled = false;
-            //}
+           
         }
 
-        private void numericUpDownTimer_ValueChanged(object sender, EventArgs e)
-        {
-           // timer2.Interval = (int)numericUpDownTimer.Value;
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chart2_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void informacjeToolStripMenuItem_Click(object sender, EventArgs e)
         {
