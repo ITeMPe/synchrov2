@@ -18,21 +18,21 @@ namespace _64QAM
         {
             Real_ = real;
             Imagine_ = imagine;
-            Phase_ = Math.Atan(Math.Abs(Imagine_) / Math.Abs(Real_));
+            Phase_ = Math.Atan(Imagine_ / Real_);
             Madnitude_ = Math.Sqrt(Math.Pow(Real_, 2) + Math.Pow(Imagine_, 2));
             point_ = point;
             if (Real_ < 0 && Imagine_ > 0) //2
             {
-                Phase_ += Math.PI / 2;
+                Phase_ += Math.PI ;
             }
             if (Real_ < 0 && Imagine_ < 0)  //3
             {
-                Phase_ += Math.PI;
+                Phase_ -= Math.PI;
             }
-            if (Real_ > 0 && Imagine_ < 0) //4
-            {
-                Phase_ += Math.PI * 1.5;
-            }
+            //if (Real_ > 0 && Imagine_ < 0) //4
+            //{
+            //    Phase_ += Math.PI * 1.5;
+            //}
         }
 
         private double Real_;
@@ -92,30 +92,18 @@ namespace _64QAM
             set
             {
                 Phase_ = value;
+                Console.WriteLine("P: R=" + Real_ + " I=" + Imagine_ + " P=" + Phase_);
                 Imagine_ = Madnitude_ * Math.Sin(Phase_);
                 Real_ = Madnitude_ * Math.Cos(Phase_);
-                //if (Phase_ >= 0 && Phase_ < Math.PI / 2)    //1
-                //{
-                    
-                //}
-                //if (Phase_ >= Math.PI / 2 && Phase_ < Math.PI)  //2
-                //{
-                //    Imagine_ = Madnitude_ * Math.Sin(Phase_ - (Math.PI / 2));
-                //    Real_ = Madnitude_ * Math.Cos(Phase_ - (Math.PI / 2)) * -1;
-                //}
-                //if (Phase_ >= Math.PI && Phase_ < Math.PI * 1.5)  //3
-                //{
-                //    Imagine_ = Madnitude_ * Math.Sin(Phase_ - (Math.PI)) * -1;   /*- Math.PI*/
-                //    Real_ = Madnitude_ * Math.Cos(Phase_ - (Math.PI)) * -1;   /*- Math.PI*/
-                //}
-                //if (Phase_ > Math.PI * 1.5 && Phase_ < Math.PI * 2) //4
-                //{
-                //    Imagine_ = Madnitude_ * Math.Sin(Phase_ + (Math.PI / 2)) * -1;    /*- Math.PI * 1.5*/
-                //    Real_ = Madnitude_ * Math.Cos(Phase_ + (Math.PI / 2)); /*- Math.PI * 1.5*/
-                //}
                
+              
+        
+            Console.WriteLine("W: R=" + Real_ + " I=" + Imagine_ + " P="+Phase_);
 
             }
+
+
         }
+        public double modul { get { return Madnitude_; } }
     }
 }
