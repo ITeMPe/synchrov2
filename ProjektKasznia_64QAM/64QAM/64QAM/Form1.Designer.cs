@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
@@ -52,9 +52,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.numericUpDownY = new System.Windows.Forms.NumericUpDown();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.numericUpDownpointAnimation = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownTimer = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -62,20 +66,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownY)).BeginInit();
-            this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownpointAnimation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTimer)).BeginInit();
             this.SuspendLayout();
             // 
             // chart1
             // 
-            chartArea9.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea9);
+            chartArea15.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea15);
             this.chart1.Location = new System.Drawing.Point(12, 92);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series9.Name = "Series1";
-            this.chart1.Series.Add(series9);
+            series15.ChartArea = "ChartArea1";
+            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series15.Name = "Series1";
+            this.chart1.Series.Add(series15);
             this.chart1.Size = new System.Drawing.Size(636, 547);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -83,15 +88,15 @@
             // 
             // chart2
             // 
-            chartArea10.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea10);
+            chartArea16.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea16);
             this.chart2.Location = new System.Drawing.Point(854, 92);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series10.Name = "Series1";
-            this.chart2.Series.Add(series10);
+            series16.ChartArea = "ChartArea1";
+            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series16.Name = "Series1";
+            this.chart2.Series.Add(series16);
             this.chart2.Size = new System.Drawing.Size(620, 547);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
@@ -162,7 +167,7 @@
             0,
             0,
             196608});
-            this.numericUpDown1.Location = new System.Drawing.Point(1229, 717);
+            this.numericUpDown1.Location = new System.Drawing.Point(1198, 725);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
@@ -310,36 +315,109 @@
             -2147483648});
             this.numericUpDownY.ValueChanged += new System.EventHandler(this.numericUpDownX_Click);
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 920);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1509, 25);
-            this.statusStrip1.TabIndex = 21;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(31, 20);
-            this.toolStripStatusLabel1.Text = "cos";
-            // 
             // timer1
             // 
-            this.timer1.Enabled = true;
             this.timer1.Interval = 25;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 300;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // numericUpDownpointAnimation
+            // 
+            this.numericUpDownpointAnimation.Location = new System.Drawing.Point(682, 493);
+            this.numericUpDownpointAnimation.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.numericUpDownpointAnimation.Minimum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.numericUpDownpointAnimation.Name = "numericUpDownpointAnimation";
+            this.numericUpDownpointAnimation.Size = new System.Drawing.Size(126, 22);
+            this.numericUpDownpointAnimation.TabIndex = 21;
+            this.numericUpDownpointAnimation.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDownTimer
+            // 
+            this.numericUpDownTimer.Increment = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.numericUpDownTimer.Location = new System.Drawing.Point(682, 551);
+            this.numericUpDownTimer.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownTimer.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownTimer.Name = "numericUpDownTimer";
+            this.numericUpDownTimer.Size = new System.Drawing.Size(126, 22);
+            this.numericUpDownTimer.TabIndex = 22;
+            this.numericUpDownTimer.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericUpDownTimer.ValueChanged += new System.EventHandler(this.numericUpDownTimer_ValueChanged);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Lime;
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(654, 397);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(194, 56);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Animacja";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(678, 470);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(130, 20);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Liczba punktów:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(678, 528);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(124, 20);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Interwał timera:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1509, 945);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.numericUpDownTimer);
+            this.Controls.Add(this.numericUpDownpointAnimation);
             this.Controls.Add(this.numericUpDownY);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -368,8 +446,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownY)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownpointAnimation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTimer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,9 +474,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown numericUpDownY;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.NumericUpDown numericUpDownpointAnimation;
+        private System.Windows.Forms.NumericUpDown numericUpDownTimer;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 

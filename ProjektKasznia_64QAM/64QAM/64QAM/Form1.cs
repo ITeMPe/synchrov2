@@ -21,7 +21,7 @@ namespace _64QAM
         //POtrzebne do jednego punktu i animacji 
         List<MyComplex> OrginalnaKonstelacja = new List<MyComplex>();
         List<MyComplex> ListaPunktowKonstekacji = new List<MyComplex>();  //konstelacja uzywana do operacji 
-
+        List<List<MyComplex>> resultListmore = new List<List<MyComplex>>();
 
         //koneic tego co powyzej
         List<MyComplex> ListaPunktowKonstekacji2 = new List<MyComplex>();
@@ -258,15 +258,12 @@ namespace _64QAM
 
         private void wplywFazyNaKOnstelacje_Faza_and_Czestot()
         {
-            //if (checkBoxPoint.Checked)
-            //{
-            //    FunkcjaDoOpsługiPunktu();
-            //    return;
-            //}
+
             if (checkBoxCzestotliwosc.Checked && checkBoxFaza.Checked)
             {
                 chart2.Series.Clear();
-                for (double t = 0; t < (double)numericUpDown1.Value * 5; t += (double)numericUpDown1.Value)
+                resultListmore = new List<List<MyComplex>>();
+                for (double t = 0; t < (double)numericUpDown1.Value * (double)numericUpDownpointAnimation.Value/100; t += (double)numericUpDown1.Value/100)
                 {
                     List<MyComplex> result = new List<MyComplex>();
                     if (lastChange < trackBar1.Value * Math.PI / 180)
@@ -299,7 +296,16 @@ namespace _64QAM
                         }
 
                     }
-                    dodajKonstelacje(chart2, result);
+
+                    if (flagAnimation == true)
+                    {
+                        resultListmore.Add(result);
+                    }
+                    else
+                    {
+                        dodajKonstelacje(chart2, result);
+                    }
+
                 }
             }
             lastChange = trackBar1.Value * Math.PI / 180;
@@ -307,11 +313,6 @@ namespace _64QAM
 
         private void trackBarCzestotliwosc_ValueChanged(object sender, EventArgs e)
         {
-            //if (checkBoxPoint.Checked)
-            //{
-            //    FunkcjaDoOpsługiPunktu();
-            //    return;
-            //}
             chart2.Series.Clear();
             if (checkBoxCzestotliwosc.Checked && checkBoxFaza.Checked)
             {
@@ -321,7 +322,7 @@ namespace _64QAM
             label2.Text = trackBarCzestotliwosc.Value.ToString() + "Hz";
             if (checkBoxCzestotliwosc.Checked && checkBoxFaza.Checked == false)
             {
-                for (double t = 0; t <= (double)numericUpDown1.Value * 5; t += (double)numericUpDown1.Value)
+                for (double t = 0; t <= (double)numericUpDown1.Value * (double)numericUpDownpointAnimation.Value/100; t += (double)numericUpDown1.Value/100)
                 {
                     List<MyComplex> result = new List<MyComplex>();
                     foreach (var s in ListaPunktowKonstekacji)
@@ -387,6 +388,7 @@ namespace _64QAM
                         {
                             numericUpDownX.Value = (decimal)prop.XValue;
                             numericUpDownY.Value = (decimal)prop.YValues[0];
+                            licznik = 0;
 
                         }
                     }
@@ -407,15 +409,28 @@ namespace _64QAM
                 ListaPunktowKonstekacji.Add(new MyComplex((double)numericUpDownX.Value, (double)numericUpDownY.Value, 0x00));
                 var foo = chart1.Series[0].Points.Where(s => s.XValue == (double)numericUpDownX.Value && s.YValues[0] == (double)numericUpDownY.Value).FirstOrDefault();
                 OldColorMarker = foo.MarkerColor;
+                timer1.Enabled = true;
+                button1.Enabled = true;
+                checkBoxCzestotliwosc.Checked = true;
+                checkBoxFaza.Checked = true;
+             
             }
             else
             {
+                chart2.Series.Clear();
+                checkBoxCzestotliwosc.Checked = false;
+                checkBoxFaza.Checked = false;
+                button1.Enabled = false;
+                timer1.Enabled = false;
+                timer2.Enabled = false;
+                flagAnimation = false;
+                button1.BackColor = Color.LawnGreen;
                 ListaPunktowKonstekacji = OrginalnaKonstelacja;
                 ListaPunktowKonstekacji = StworzPunktyKonstelacji();
                 WstawKonstelacje(chart1, ListaPunktowKonstekacji);
             }
         }
-
+        int licznik = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (checkBoxPoint.Checked)
@@ -430,19 +445,57 @@ namespace _64QAM
                 if (B > 255) B = OldColorMarker.B;
                 foo.MarkerColor = Color.FromArgb(255, R, G, B);
 
-                
             }
         }
 
         private void numericUpDownX_Click(object sender, EventArgs e)
         {
+            licznik = 0;
             checkBoxPoint_CheckedChanged(null, null);
             trackBarCzestotliwosc_ValueChanged(null, null);
-            ListaPunktowKonstekacji = StworzPunktyKonstelacji();                                             `
+            ListaPunktowKonstekacji = StworzPunktyKonstelacji();
             WstawKonstelacje(chart1, ListaPunktowKonstekacji);
         }
 
-       
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (resultListmore.Count != 0) dodajKonstelacje(chart2, resultListmore[licznik]);
+            licznik++;
+            if (licznik >= resultListmore.Count)
+            {
+                chart2.Series.Clear();
+                licznik = 0;
+                if (resultListmore.Count != 0) dodajKonstelacje(chart2, resultListmore[licznik]);
+            }
+        }
 
+        bool flagAnimation = false;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (flagAnimation == false)
+            {
+                flagAnimation = true;
+                button1.BackColor = Color.Red;
+                timer2.Enabled = true;
+                wplywFazyNaKOnstelacje_Faza_and_Czestot();
+            }
+            else
+            {
+                
+                flagAnimation = false;
+                button1.BackColor = Color.LawnGreen;
+                timer2.Enabled = false;
+            }
+        }
+
+        private void numericUpDownTimer_ValueChanged(object sender, EventArgs e)
+        {
+            timer2.Interval =(int) numericUpDownTimer.Value;
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
