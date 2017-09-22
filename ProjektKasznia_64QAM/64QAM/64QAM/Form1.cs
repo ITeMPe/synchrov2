@@ -41,6 +41,7 @@ namespace _64QAM
         public Form1()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             InitializeColorTab();
             OrginalnaKonstelacja = StworzPunktyKonstelacji();
             ListaPunktowKonstekacji = OrginalnaKonstelacja;
@@ -340,23 +341,23 @@ namespace _64QAM
 
         }
 
-        private void buttonSend_Click(object sender, EventArgs e)
-        {
-            if (textBoxTransmiter != null)
-            {
-                String binary = null;
-                String napis = textBoxTransmiter.Text;
+        //private void buttonSend_Click(object sender, EventArgs e)
+        //{
+        //    if (textBoxTransmiter != null)
+        //    {
+        //        String binary = null;
+        //        String napis = textBoxTransmiter.Text;
 
-                char[] znaki = new char[napis.Length];
-                for (int i = 0; i < napis.Length; i++)
-                {
-                    //int numer= Int.Parse(napis);
-                    //binary = Convert.ToString(numer ,2); 
-                    //textBoxReciver.Text = binary.ToString();
-                }
-                Console.WriteLine(binary);
-            }
-        }
+        //        char[] znaki = new char[napis.Length];
+        //        for (int i = 0; i < napis.Length; i++)
+        //        {
+        //            //int numer= Int.Parse(napis);
+        //            //binary = Convert.ToString(numer ,2); 
+        //            //textBoxReciver.Text = binary.ToString();
+        //        }
+        //        Console.WriteLine(binary);
+        //    }
+        //}
         Point? prevPosition = null;
         ToolTip tooltip = new ToolTip();
         private void chart1_MouseClick(object sender, MouseEventArgs e)
@@ -493,6 +494,11 @@ namespace _64QAM
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart2_Click(object sender, EventArgs e)
         {
 
         }

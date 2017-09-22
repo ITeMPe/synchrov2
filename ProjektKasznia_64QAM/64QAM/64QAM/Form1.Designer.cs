@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea17 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea18 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
@@ -44,9 +44,6 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.labelKonst_Pocz = new System.Windows.Forms.Label();
             this.label3KOnst_Wyjs = new System.Windows.Forms.Label();
-            this.textBoxTransmiter = new System.Windows.Forms.TextBox();
-            this.buttonSend = new System.Windows.Forms.Button();
-            this.textBoxReciver = new System.Windows.Forms.TextBox();
             this.checkBoxPoint = new System.Windows.Forms.CheckBox();
             this.numericUpDownX = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,6 +58,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -74,41 +73,42 @@
             // 
             // chart1
             // 
-            chartArea17.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea17);
+            chartArea9.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea9);
             this.chart1.Location = new System.Drawing.Point(12, 92);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series17.ChartArea = "ChartArea1";
-            series17.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series17.Name = "Series1";
-            this.chart1.Series.Add(series17);
-            this.chart1.Size = new System.Drawing.Size(636, 547);
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series9.Name = "Series1";
+            this.chart1.Series.Add(series9);
+            this.chart1.Size = new System.Drawing.Size(713, 641);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             this.chart1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseClick);
             // 
             // chart2
             // 
-            chartArea18.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea18);
-            this.chart2.Location = new System.Drawing.Point(854, 92);
+            chartArea10.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea10);
+            this.chart2.Location = new System.Drawing.Point(931, 92);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series18.ChartArea = "ChartArea1";
-            series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series18.Name = "Series1";
-            this.chart2.Series.Add(series18);
-            this.chart2.Size = new System.Drawing.Size(620, 547);
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series10.Name = "Series1";
+            this.chart2.Series.Add(series10);
+            this.chart2.Size = new System.Drawing.Size(716, 641);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
+            this.chart2.Click += new System.EventHandler(this.chart2_Click);
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(55, 648);
+            this.trackBar1.Location = new System.Drawing.Point(190, 739);
             this.trackBar1.Maximum = 360;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(464, 56);
+            this.trackBar1.Size = new System.Drawing.Size(480, 56);
             this.trackBar1.TabIndex = 2;
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
@@ -116,7 +116,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(513, 657);
+            this.label1.Location = new System.Drawing.Point(688, 739);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 29);
             this.label1.TabIndex = 4;
@@ -125,7 +125,7 @@
             // checkBoxFaza
             // 
             this.checkBoxFaza.AutoSize = true;
-            this.checkBoxFaza.Location = new System.Drawing.Point(694, 169);
+            this.checkBoxFaza.Location = new System.Drawing.Point(771, 154);
             this.checkBoxFaza.Name = "checkBoxFaza";
             this.checkBoxFaza.Size = new System.Drawing.Size(61, 21);
             this.checkBoxFaza.TabIndex = 5;
@@ -135,7 +135,7 @@
             // checkBoxCzestotliwosc
             // 
             this.checkBoxCzestotliwosc.AutoSize = true;
-            this.checkBoxCzestotliwosc.Location = new System.Drawing.Point(694, 209);
+            this.checkBoxCzestotliwosc.Location = new System.Drawing.Point(771, 194);
             this.checkBoxCzestotliwosc.Name = "checkBoxCzestotliwosc";
             this.checkBoxCzestotliwosc.Size = new System.Drawing.Size(114, 21);
             this.checkBoxCzestotliwosc.TabIndex = 6;
@@ -144,10 +144,10 @@
             // 
             // trackBarCzestotliwosc
             // 
-            this.trackBarCzestotliwosc.Location = new System.Drawing.Point(854, 648);
+            this.trackBarCzestotliwosc.Location = new System.Drawing.Point(1202, 739);
             this.trackBarCzestotliwosc.Maximum = 500;
             this.trackBarCzestotliwosc.Name = "trackBarCzestotliwosc";
-            this.trackBarCzestotliwosc.Size = new System.Drawing.Size(464, 56);
+            this.trackBarCzestotliwosc.Size = new System.Drawing.Size(381, 56);
             this.trackBarCzestotliwosc.TabIndex = 7;
             this.trackBarCzestotliwosc.ValueChanged += new System.EventHandler(this.trackBarCzestotliwosc_ValueChanged);
             // 
@@ -155,7 +155,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(1324, 657);
+            this.label2.Location = new System.Drawing.Point(1589, 739);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 29);
             this.label2.TabIndex = 8;
@@ -169,7 +169,7 @@
             0,
             0,
             196608});
-            this.numericUpDown1.Location = new System.Drawing.Point(681, 618);
+            this.numericUpDown1.Location = new System.Drawing.Point(758, 603);
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
@@ -188,7 +188,7 @@
             // 
             this.labelKonst_Pocz.AutoSize = true;
             this.labelKonst_Pocz.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKonst_Pocz.Location = new System.Drawing.Point(48, 35);
+            this.labelKonst_Pocz.Location = new System.Drawing.Point(84, 35);
             this.labelKonst_Pocz.Name = "labelKonst_Pocz";
             this.labelKonst_Pocz.Size = new System.Drawing.Size(565, 42);
             this.labelKonst_Pocz.TabIndex = 10;
@@ -198,42 +198,16 @@
             // 
             this.label3KOnst_Wyjs.AutoSize = true;
             this.label3KOnst_Wyjs.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3KOnst_Wyjs.Location = new System.Drawing.Point(899, 35);
+            this.label3KOnst_Wyjs.Location = new System.Drawing.Point(1013, 35);
             this.label3KOnst_Wyjs.Name = "label3KOnst_Wyjs";
             this.label3KOnst_Wyjs.Size = new System.Drawing.Size(538, 42);
             this.label3KOnst_Wyjs.TabIndex = 11;
             this.label3KOnst_Wyjs.Text = "KONSTELACJA WYJŚCIOWA ";
             // 
-            // textBoxTransmiter
-            // 
-            this.textBoxTransmiter.Location = new System.Drawing.Point(55, 710);
-            this.textBoxTransmiter.Multiline = true;
-            this.textBoxTransmiter.Name = "textBoxTransmiter";
-            this.textBoxTransmiter.Size = new System.Drawing.Size(335, 103);
-            this.textBoxTransmiter.TabIndex = 12;
-            // 
-            // buttonSend
-            // 
-            this.buttonSend.Location = new System.Drawing.Point(407, 790);
-            this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(75, 23);
-            this.buttonSend.TabIndex = 13;
-            this.buttonSend.Text = "Send";
-            this.buttonSend.UseVisualStyleBackColor = true;
-            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
-            // 
-            // textBoxReciver
-            // 
-            this.textBoxReciver.Location = new System.Drawing.Point(55, 847);
-            this.textBoxReciver.Multiline = true;
-            this.textBoxReciver.Name = "textBoxReciver";
-            this.textBoxReciver.Size = new System.Drawing.Size(335, 97);
-            this.textBoxReciver.TabIndex = 14;
-            // 
             // checkBoxPoint
             // 
             this.checkBoxPoint.AutoSize = true;
-            this.checkBoxPoint.Location = new System.Drawing.Point(694, 256);
+            this.checkBoxPoint.Location = new System.Drawing.Point(771, 241);
             this.checkBoxPoint.Name = "checkBoxPoint";
             this.checkBoxPoint.Size = new System.Drawing.Size(108, 21);
             this.checkBoxPoint.TabIndex = 15;
@@ -248,7 +222,7 @@
             0,
             0,
             0});
-            this.numericUpDownX.Location = new System.Drawing.Point(708, 297);
+            this.numericUpDownX.Location = new System.Drawing.Point(785, 282);
             this.numericUpDownX.Maximum = new decimal(new int[] {
             7,
             0,
@@ -273,7 +247,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(677, 288);
+            this.label3.Location = new System.Drawing.Point(754, 273);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(25, 29);
             this.label3.TabIndex = 18;
@@ -283,7 +257,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(676, 328);
+            this.label4.Location = new System.Drawing.Point(753, 313);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(26, 29);
             this.label4.TabIndex = 19;
@@ -296,7 +270,7 @@
             0,
             0,
             0});
-            this.numericUpDownY.Location = new System.Drawing.Point(708, 337);
+            this.numericUpDownY.Location = new System.Drawing.Point(785, 322);
             this.numericUpDownY.Maximum = new decimal(new int[] {
             7,
             0,
@@ -329,7 +303,7 @@
             // 
             // numericUpDownpointAnimation
             // 
-            this.numericUpDownpointAnimation.Location = new System.Drawing.Point(682, 493);
+            this.numericUpDownpointAnimation.Location = new System.Drawing.Point(759, 482);
             this.numericUpDownpointAnimation.Maximum = new decimal(new int[] {
             30,
             0,
@@ -356,7 +330,7 @@
             0,
             0,
             0});
-            this.numericUpDownTimer.Location = new System.Drawing.Point(682, 551);
+            this.numericUpDownTimer.Location = new System.Drawing.Point(759, 536);
             this.numericUpDownTimer.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -381,7 +355,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Lime;
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(654, 397);
+            this.button1.Location = new System.Drawing.Point(731, 382);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(194, 56);
             this.button1.TabIndex = 23;
@@ -393,7 +367,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(678, 470);
+            this.label5.Location = new System.Drawing.Point(755, 455);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(130, 20);
             this.label5.TabIndex = 24;
@@ -404,7 +378,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(678, 528);
+            this.label6.Location = new System.Drawing.Point(755, 513);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(124, 20);
             this.label6.TabIndex = 25;
@@ -414,7 +388,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(776, 617);
+            this.label7.Location = new System.Drawing.Point(853, 602);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(32, 20);
             this.label7.TabIndex = 26;
@@ -424,17 +398,40 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(678, 589);
+            this.label8.Location = new System.Drawing.Point(755, 574);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(110, 20);
             this.label8.TabIndex = 27;
             this.label8.Text = "Kwant czasu:";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label9.Location = new System.Drawing.Point(12, 743);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(172, 25);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Przesunięcie Fazy";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.Location = new System.Drawing.Point(926, 743);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(253, 25);
+            this.label10.TabIndex = 29;
+            this.label10.Text = "Przesunięcie Częstotliwości";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1509, 945);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1676, 843);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -447,9 +444,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numericUpDownX);
             this.Controls.Add(this.checkBoxPoint);
-            this.Controls.Add(this.textBoxReciver);
-            this.Controls.Add(this.buttonSend);
-            this.Controls.Add(this.textBoxTransmiter);
             this.Controls.Add(this.label3KOnst_Wyjs);
             this.Controls.Add(this.labelKonst_Pocz);
             this.Controls.Add(this.numericUpDown1);
@@ -490,9 +484,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label labelKonst_Pocz;
         private System.Windows.Forms.Label label3KOnst_Wyjs;
-        private System.Windows.Forms.TextBox textBoxTransmiter;
-        private System.Windows.Forms.Button buttonSend;
-        private System.Windows.Forms.TextBox textBoxReciver;
         private System.Windows.Forms.CheckBox checkBoxPoint;
         private System.Windows.Forms.NumericUpDown numericUpDownX;
         private System.Windows.Forms.Label label3;
@@ -507,6 +498,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }
 
