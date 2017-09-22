@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
@@ -50,7 +50,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.numericUpDownY = new System.Windows.Forms.NumericUpDown();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.numericUpDownpointAnimation = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownTimer = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
@@ -60,6 +59,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.informacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerek = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -69,19 +72,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownpointAnimation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTimer)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // chart1
             // 
-            chartArea9.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea9);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Location = new System.Drawing.Point(12, 92);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series9.Name = "Series1";
-            this.chart1.Series.Add(series9);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(713, 641);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -89,15 +93,15 @@
             // 
             // chart2
             // 
-            chartArea10.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea10);
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
             this.chart2.Location = new System.Drawing.Point(931, 92);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series10.Name = "Series1";
-            this.chart2.Series.Add(series10);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series2.Name = "Series1";
+            this.chart2.Series.Add(series2);
             this.chart2.Size = new System.Drawing.Size(716, 641);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
@@ -125,22 +129,28 @@
             // checkBoxFaza
             // 
             this.checkBoxFaza.AutoSize = true;
+            this.checkBoxFaza.Checked = true;
+            this.checkBoxFaza.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxFaza.Location = new System.Drawing.Point(771, 154);
             this.checkBoxFaza.Name = "checkBoxFaza";
             this.checkBoxFaza.Size = new System.Drawing.Size(61, 21);
             this.checkBoxFaza.TabIndex = 5;
             this.checkBoxFaza.Text = "Faza";
             this.checkBoxFaza.UseVisualStyleBackColor = true;
+            this.checkBoxFaza.Visible = false;
             // 
             // checkBoxCzestotliwosc
             // 
             this.checkBoxCzestotliwosc.AutoSize = true;
+            this.checkBoxCzestotliwosc.Checked = true;
+            this.checkBoxCzestotliwosc.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxCzestotliwosc.Location = new System.Drawing.Point(771, 194);
             this.checkBoxCzestotliwosc.Name = "checkBoxCzestotliwosc";
             this.checkBoxCzestotliwosc.Size = new System.Drawing.Size(114, 21);
             this.checkBoxCzestotliwosc.TabIndex = 6;
             this.checkBoxCzestotliwosc.Text = "Czestotliwosc";
             this.checkBoxCzestotliwosc.UseVisualStyleBackColor = true;
+            this.checkBoxCzestotliwosc.Visible = false;
             // 
             // trackBarCzestotliwosc
             // 
@@ -213,7 +223,6 @@
             this.checkBoxPoint.TabIndex = 15;
             this.checkBoxPoint.Text = "Jeden punkt";
             this.checkBoxPoint.UseVisualStyleBackColor = true;
-            this.checkBoxPoint.CheckedChanged += new System.EventHandler(this.checkBoxPoint_CheckedChanged);
             // 
             // numericUpDownX
             // 
@@ -293,13 +302,9 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 25;
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 700;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // timer2
-            // 
-            this.timer2.Interval = 300;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // numericUpDownpointAnimation
             // 
@@ -354,7 +359,6 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Lime;
-            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(731, 382);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(194, 56);
@@ -424,6 +428,34 @@
             this.label10.TabIndex = 29;
             this.label10.Text = "Przesunięcie Częstotliwości";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.informacjeToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1676, 28);
+            this.menuStrip1.TabIndex = 30;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // informacjeToolStripMenuItem
+            // 
+            this.informacjeToolStripMenuItem.Name = "informacjeToolStripMenuItem";
+            this.informacjeToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
+            this.informacjeToolStripMenuItem.Text = "Informacje";
+            this.informacjeToolStripMenuItem.Click += new System.EventHandler(this.informacjeToolStripMenuItem_Click);
+            // 
+            // timerek
+            // 
+            this.timerek.Interval = 700;
+            this.timerek.Tick += new System.EventHandler(this.timerek_Tick);
+            // 
+            // timer3
+            // 
+            this.timer3.Interval = 200;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -455,8 +487,10 @@
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "64 QAM simulation program";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
@@ -466,6 +500,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownpointAnimation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTimer)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -490,7 +526,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown numericUpDownY;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.NumericUpDown numericUpDownpointAnimation;
         private System.Windows.Forms.NumericUpDown numericUpDownTimer;
         private System.Windows.Forms.Button button1;
@@ -500,6 +535,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem informacjeToolStripMenuItem;
+        private System.Windows.Forms.Timer timerek;
+        private System.Windows.Forms.Timer timer3;
     }
 }
 

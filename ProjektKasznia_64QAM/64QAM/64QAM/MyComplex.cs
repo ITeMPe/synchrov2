@@ -92,14 +92,9 @@ namespace _64QAM
             set
             {
                 Phase_ = value;
-                Console.WriteLine("P: R=" + Real_ + " I=" + Imagine_ + " P=" + Phase_);
+             
                 Imagine_ = Madnitude_ * Math.Sin(Phase_);
-                Real_ = Madnitude_ * Math.Cos(Phase_);
-               
-              
-        
-            Console.WriteLine("W: R=" + Real_ + " I=" + Imagine_ + " P="+Phase_);
-
+                Real_ = Madnitude_ * Math.Cos(Phase_);   
             }
 
 
