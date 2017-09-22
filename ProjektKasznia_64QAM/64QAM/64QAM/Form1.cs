@@ -199,11 +199,7 @@ namespace _64QAM
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
-            //if (checkBoxPoint.Checked)
-            //{
-            //    FunkcjaDoOpsługiPunktu();
-            //    return;
-            //}
+            licznik = 0;
             label1.Text = trackBar1.Value.ToString() + "°";
             double phase = trackBar1.Value * Math.PI / 180;
             if (checkBoxFaza.Checked && checkBoxCzestotliwosc.Checked == false)
@@ -258,12 +254,12 @@ namespace _64QAM
 
         private void wplywFazyNaKOnstelacje_Faza_and_Czestot()
         {
-
+            licznik = 0;
             if (checkBoxCzestotliwosc.Checked && checkBoxFaza.Checked)
             {
                 chart2.Series.Clear();
                 resultListmore = new List<List<MyComplex>>();
-                for (double t = 0; t < (double)numericUpDown1.Value * (double)numericUpDownpointAnimation.Value/100; t += (double)numericUpDown1.Value/100)
+                for (double t = 0; t < (double)numericUpDown1.Value * (double)numericUpDownpointAnimation.Value / 100; t += (double)numericUpDown1.Value / 100)
                 {
                     List<MyComplex> result = new List<MyComplex>();
                     if (lastChange < trackBar1.Value * Math.PI / 180)
@@ -313,16 +309,18 @@ namespace _64QAM
 
         private void trackBarCzestotliwosc_ValueChanged(object sender, EventArgs e)
         {
+            licznik = 0;
+            label2.Text = trackBarCzestotliwosc.Value.ToString() + "Hz";
             chart2.Series.Clear();
             if (checkBoxCzestotliwosc.Checked && checkBoxFaza.Checked)
             {
                 wplywFazyNaKOnstelacje_Faza_and_Czestot();
                 return;
             }
-            label2.Text = trackBarCzestotliwosc.Value.ToString() + "Hz";
+
             if (checkBoxCzestotliwosc.Checked && checkBoxFaza.Checked == false)
             {
-                for (double t = 0; t <= (double)numericUpDown1.Value * (double)numericUpDownpointAnimation.Value/100; t += (double)numericUpDown1.Value/100)
+                for (double t = 0; t <= (double)numericUpDown1.Value * (double)numericUpDownpointAnimation.Value / 100; t += (double)numericUpDown1.Value / 100)
                 {
                     List<MyComplex> result = new List<MyComplex>();
                     foreach (var s in ListaPunktowKonstekacji)
@@ -413,7 +411,8 @@ namespace _64QAM
                 button1.Enabled = true;
                 checkBoxCzestotliwosc.Checked = true;
                 checkBoxFaza.Checked = true;
-             
+                wplywFazyNaKOnstelacje_Faza_and_Czestot();
+
             }
             else
             {
@@ -481,7 +480,7 @@ namespace _64QAM
             }
             else
             {
-                
+
                 flagAnimation = false;
                 button1.BackColor = Color.LawnGreen;
                 timer2.Enabled = false;
@@ -490,7 +489,7 @@ namespace _64QAM
 
         private void numericUpDownTimer_ValueChanged(object sender, EventArgs e)
         {
-            timer2.Interval =(int) numericUpDownTimer.Value;
+            timer2.Interval = (int)numericUpDownTimer.Value;
         }
 
         private void label5_Click(object sender, EventArgs e)
