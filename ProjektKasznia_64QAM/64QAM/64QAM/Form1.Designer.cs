@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
@@ -45,9 +45,15 @@
             this.labelKonst_Pocz = new System.Windows.Forms.Label();
             this.label3KOnst_Wyjs = new System.Windows.Forms.Label();
             this.checkBoxPoint = new System.Windows.Forms.CheckBox();
+            this.numericUpDownX = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.numericUpDownY = new System.Windows.Forms.NumericUpDown();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.numericUpDownpointAnimation = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownTimer = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -62,39 +68,44 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarCzestotliwosc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownpointAnimation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTimer)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // chart1
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
             this.chart1.Location = new System.Drawing.Point(12, 92);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series5.Name = "Series1";
-            this.chart1.Series.Add(series5);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(713, 641);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
+            this.chart1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseClick);
             // 
             // chart2
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea6);
+            chartArea4.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea4);
             this.chart2.Location = new System.Drawing.Point(931, 92);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series6.Name = "Series1";
-            this.chart2.Series.Add(series6);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series4.Name = "Series1";
+            this.chart2.Series.Add(series4);
             this.chart2.Size = new System.Drawing.Size(716, 641);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
+            this.chart2.Click += new System.EventHandler(this.chart2_Click);
             // 
             // trackBar1
             // 
@@ -103,6 +114,7 @@
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(480, 56);
             this.trackBar1.TabIndex = 2;
+            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
             // label1
             // 
@@ -119,7 +131,7 @@
             this.checkBoxFaza.AutoSize = true;
             this.checkBoxFaza.Checked = true;
             this.checkBoxFaza.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxFaza.Location = new System.Drawing.Point(777, 149);
+            this.checkBoxFaza.Location = new System.Drawing.Point(771, 154);
             this.checkBoxFaza.Name = "checkBoxFaza";
             this.checkBoxFaza.Size = new System.Drawing.Size(61, 21);
             this.checkBoxFaza.TabIndex = 5;
@@ -205,18 +217,116 @@
             // checkBoxPoint
             // 
             this.checkBoxPoint.AutoSize = true;
-            this.checkBoxPoint.Location = new System.Drawing.Point(777, 236);
+            this.checkBoxPoint.Location = new System.Drawing.Point(771, 241);
             this.checkBoxPoint.Name = "checkBoxPoint";
             this.checkBoxPoint.Size = new System.Drawing.Size(108, 21);
             this.checkBoxPoint.TabIndex = 15;
             this.checkBoxPoint.Text = "Jeden punkt";
             this.checkBoxPoint.UseVisualStyleBackColor = true;
             // 
+            // numericUpDownX
+            // 
+            this.numericUpDownX.Increment = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numericUpDownX.Location = new System.Drawing.Point(785, 282);
+            this.numericUpDownX.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.numericUpDownX.Minimum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownX.Name = "numericUpDownX";
+            this.numericUpDownX.Size = new System.Drawing.Size(73, 22);
+            this.numericUpDownX.TabIndex = 17;
+            this.numericUpDownX.Value = new decimal(new int[] {
+            7,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownX.Click += new System.EventHandler(this.numericUpDownX_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(754, 273);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 29);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "x";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(753, 313);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 29);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "y";
+            // 
+            // numericUpDownY
+            // 
+            this.numericUpDownY.Increment = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numericUpDownY.Location = new System.Drawing.Point(792, 322);
+            this.numericUpDownY.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.numericUpDownY.Minimum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownY.Name = "numericUpDownY";
+            this.numericUpDownY.Size = new System.Drawing.Size(73, 22);
+            this.numericUpDownY.TabIndex = 20;
+            this.numericUpDownY.Value = new decimal(new int[] {
+            7,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownY.ValueChanged += new System.EventHandler(this.numericUpDownX_Click);
+            // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 700;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // numericUpDownpointAnimation
+            // 
+            this.numericUpDownpointAnimation.Location = new System.Drawing.Point(759, 482);
+            this.numericUpDownpointAnimation.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.numericUpDownpointAnimation.Minimum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.numericUpDownpointAnimation.Name = "numericUpDownpointAnimation";
+            this.numericUpDownpointAnimation.Size = new System.Drawing.Size(126, 22);
+            this.numericUpDownpointAnimation.TabIndex = 21;
+            this.numericUpDownpointAnimation.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             // 
             // numericUpDownTimer
             // 
@@ -244,6 +354,7 @@
             0,
             0,
             0});
+            this.numericUpDownTimer.ValueChanged += new System.EventHandler(this.numericUpDownTimer_ValueChanged);
             // 
             // button1
             // 
@@ -255,6 +366,17 @@
             this.button1.Text = "Animacja";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(755, 455);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(130, 20);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Liczba punktów:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -313,7 +435,7 @@
             this.informacjeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1666, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1676, 28);
             this.menuStrip1.TabIndex = 30;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -339,14 +461,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1666, 843);
+            this.ClientSize = new System.Drawing.Size(1676, 843);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.numericUpDownTimer);
+            this.Controls.Add(this.numericUpDownpointAnimation);
+            this.Controls.Add(this.numericUpDownY);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.numericUpDownX);
             this.Controls.Add(this.checkBoxPoint);
             this.Controls.Add(this.label3KOnst_Wyjs);
             this.Controls.Add(this.labelKonst_Pocz);
@@ -368,6 +496,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarCzestotliwosc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownpointAnimation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTimer)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -390,9 +521,15 @@
         private System.Windows.Forms.Label labelKonst_Pocz;
         private System.Windows.Forms.Label label3KOnst_Wyjs;
         private System.Windows.Forms.CheckBox checkBoxPoint;
+        private System.Windows.Forms.NumericUpDown numericUpDownX;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown numericUpDownY;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.NumericUpDown numericUpDownpointAnimation;
         private System.Windows.Forms.NumericUpDown numericUpDownTimer;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
