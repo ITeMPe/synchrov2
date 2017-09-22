@@ -328,7 +328,7 @@ namespace _64QAM
             {
                 String binary = null;
                 String napis =   textBoxTransmiter.Text;
-                String binary = null;
+               
                 char[] znaki = new char[napis.Length];
                 for (int i = 0; i < napis.Length; i++)
                 {
@@ -368,8 +368,7 @@ namespace _64QAM
                         {
                             numericUpDownX.Value = (decimal)prop.XValue;
                             numericUpDownY.Value = (decimal)prop.YValues[0];
-                            Console.WriteLine("X=" + prop.XValue + ", Y=" + prop.YValues[0], this.chart1,
-                                            pos.X, pos.Y - 15);
+                           
                         }
                     }
                 }
@@ -386,7 +385,7 @@ namespace _64QAM
             if (checkBoxPoint.Checked)
             {
                 ListaPunktowKonstekacji.Clear();
-                ListaPunktowKonstekacji.Add(new MyComplex((double)numericUpDownX.Value, (double)numericUpDownY.Value));
+                ListaPunktowKonstekacji.Add(new MyComplex((double)numericUpDownX.Value, (double)numericUpDownY.Value,0x00));
                 var foo =  chart1.Series[0].Points.Where(s => s.XValue == (double)numericUpDownX.Value && s.YValues[0] == (double)numericUpDownY.Value).FirstOrDefault();
                 OldColorMarker = foo.MarkerColor;
             }
