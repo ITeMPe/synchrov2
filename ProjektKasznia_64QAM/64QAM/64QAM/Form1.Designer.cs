@@ -198,21 +198,21 @@
             // 
             this.labelKonst_Pocz.AutoSize = true;
             this.labelKonst_Pocz.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKonst_Pocz.Location = new System.Drawing.Point(84, 35);
+            this.labelKonst_Pocz.Location = new System.Drawing.Point(12, 35);
             this.labelKonst_Pocz.Name = "labelKonst_Pocz";
-            this.labelKonst_Pocz.Size = new System.Drawing.Size(565, 42);
+            this.labelKonst_Pocz.Size = new System.Drawing.Size(396, 42);
             this.labelKonst_Pocz.TabIndex = 10;
-            this.labelKonst_Pocz.Text = "KONSTELACJA POCZĄTKOWA";
+            this.labelKonst_Pocz.Text = "SYGNAŁ NADAWANY";
             // 
             // label3KOnst_Wyjs
             // 
             this.label3KOnst_Wyjs.AutoSize = true;
             this.label3KOnst_Wyjs.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3KOnst_Wyjs.Location = new System.Drawing.Point(1013, 35);
+            this.label3KOnst_Wyjs.Location = new System.Drawing.Point(924, 35);
             this.label3KOnst_Wyjs.Name = "label3KOnst_Wyjs";
-            this.label3KOnst_Wyjs.Size = new System.Drawing.Size(538, 42);
+            this.label3KOnst_Wyjs.Size = new System.Drawing.Size(400, 42);
             this.label3KOnst_Wyjs.TabIndex = 11;
-            this.label3KOnst_Wyjs.Text = "KONSTELACJA WYJŚCIOWA ";
+            this.label3KOnst_Wyjs.Text = "SYGNAŁ ODEBRANY ";
             // 
             // checkBoxPoint
             // 
